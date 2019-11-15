@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/flexboxgrid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/boostrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/lightbox.css' %}">
+
+{% block submenu_galeria %} 
+    {% if request.user.is_staff %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <span class="navbar-brand" href="#"><i>ADMINISTRAR</i></span>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep" aria-controls="nep" aria-expanded="false">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="nep">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'galeria_new' %}"><i>Cargar Foto</i></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'galeria' %}"><i>Ver Galeria</i></a>
+                        </li>               
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% endif %}
+{% endblock submenu_galeria %}
+
+<!-- CONTENIDO -->
+{% block  content %}   
+    {% for galeria in galeria_list %}
+        <div class="col-md-4 col-sm-6 mt-3 mb-3 joda_galeria">
+			<div class="card">
+				<a href="{{galeria.imagen.url}}"> <img src="{{galeria.imagen.url}}"  class="card-img-top tamano_img" alt=""></a>				
+			</div>
+            {% if request.user.is_staff %}
+                <div class="d-flex justify-content-between">
+                    <a class="nav-link links_update_delete" href="{% url 'galeria_update' galeria.id %}"><i>Actualizar Foto</i></a>
+                    <a class="nav-link links_update_delete" href="{% url 'galeria_delete' galeria.id %}"><i>Eliminar Foto</i></a>  
+                </div>
+            {% endif %}
+		</div>
+    {% endfor %} 
+{% endblock content %}

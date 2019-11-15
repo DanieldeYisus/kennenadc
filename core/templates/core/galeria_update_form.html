@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block submenu_galeria %} 
+    {% if request.user.is_staff %}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <span class="navbar-brand" href="#"><i>ADMINISTRAR</i></span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep" aria-controls="nep" aria-expanded="false">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="nep">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'galeria_new' %}"><i>Cargar Foto</i></a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="{% url 'galeria' %}"><i>Ver Galeria</i></a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        </nav>
+    {% endif %}
+{% endblock submenu_galeria %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="d-flex justify-content-center">
+                {% if 'ok' in request.GET %}
+                <p>{{galeria.titulo}} editada correctamente, haz clic <a href="{% url 'galeria' %}"><strong>aquí</strong></a>  para ver el resultado.</p>
+                {% endif %}
+            </div>
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <form class="prop_detail mt-3 mb-5 p-4 bg-dark" action="" method="post"  enctype='multipart/form-data'>{% csrf_token %}
+                        <h1>Actualizar foto</h1>
+                        <hr>
+                        {{form|crispy}}            
+                        <hr>
+                        <input type="submit" value="Actualizar foto" class="btn btn-primary mt-2"/>
+                    </form>   
+                </div>
+            </div> 
+        </div>
+    </div>
+{% endblock %}
