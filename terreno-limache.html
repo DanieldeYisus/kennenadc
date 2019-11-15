@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700&display=swap" rel="stylesheet">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Sunflower:300,500,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/flexboxgrid.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>JODA Propiedades</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="row " id="subir-al-cielo">
+
+        <div class="col-xs-12 col-sm-5 centrar-logo center-xs">
+            <a href="index.html"> <img src="img/logo.png" alt="Logo"> </a>
+        </div>
+
+        <div class="col-sm-3 ajustarIcon hidden-xs ">
+            <i class="glyphicon glyphicon-map-marker"></i>
+            <div class="textoIcon">
+                <p>
+                    <a href="https://www.google.cl/maps/place/Lusitania+666,+Vi%C3%B1a+del+Mar,+Regi%C3%B3n+de+Valpara%C3%ADso/@-33.0265286,-71.5313664,17z/data=!3m1!4b1!4m5!3m4!1s0x9689de7c21f3fc21:0x2a3abc99a1f6484b!8m2!3d-33.0265331!4d-71.5291777" target="_blank">Lusitania #666</a>
+                    <br> Viña del Mar
+                </p>
+            </div>
+        </div>
+        <div class="col-sm-4 ajustarIcon hidden-xs ">
+            <i class="glyphicon glyphicon-time"></i>
+            <div class="textoIcon">
+                <p>
+                    Lunes a Viernes
+                    <br> 9:30 a 14:00 hrs
+                    <br> 15:00 a 19:00 hrs
+                </p>
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- MENU -->
+    <section class="row clearfix">
+        <div class="menu col-xs-12">
+            <input type="checkbox" id="btn_menu">
+            <label for="btn_menu">     
+                        <i class="fas fa-bars" id="bars"></i>                    
+                        <p id="title_menu">Menu</p>
+                    </label>
+            <div>
+            </div>
+
+            <nav class="sub_menu">
+
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="quienes-somos.html">¿Quienes somos?</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li class="hidden-lg hidden-md"><a href="casas.html">Casas</a></li>
+                    <li class="hidden-lg hidden-md"><a href="departamento.html">Departamentos</a></li>
+                    <li class="hidden-lg hidden-md"><a href="terrenos.html">Terrenos</a></li>
+                    <li><a href="galeria.html">Galeria</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- CONTENIDO -->
+    <section class="main">
+        <div class="row">
+
+            <section class="col-md-9">
+
+                <article class="post clearfix">
+                    <img class="thumb pull-left img-thumbnail" src="img/terr1.jpg" alt="">
+
+                    <h2 class="post-title">
+                        Terreno Limache
+                    </h2>
+                    <p class="post-contenido text-justify">
+                        Terreno comercial, terreno 7.748 m2 Construídos: casa-habitación 143m2 y Dos Bodegas 156m2 y 126 m2 estacionamientos techados 40m2. La casa tiene living comedor cocina americana, 3 dormitorios, dos baños y loggia grande. Agua Potable, red alcantarilado,
+                        luz agua potable.
+                    </p>
+                    <div class="contenedor-botones">
+                        <a href="#" class="btn btn-success">Comprar <span class="badge" id="uf-terr-index"></span></a>
+                    </div>
+                </article>
+
+
+
+
+            </section>
+
+            <!-- ASIDE -->
+            <aside class="col-md-3 hidden-xs hidden-sm">
+                <h3>También puedes ver:</h3>
+                <div class="list-group ">
+                    <a href="casas.html" class="list-group-item">Casas</a>
+                    <a href="departamento.html" class="list-group-item ">Departamentos</a>
+                    <a href="terrenos.html" class="list-group-item ">Terrenos</a>
+
+                </div>
+
+                <h3>Nuevos Proyectos:</h3>
+                <img class="foto img-thumbnail" src="img/proyect1.jpg" alt="Foto Aside">
+                <br>
+                <img class="foto img-thumbnail" src="img/proyect2.jpg" alt="Foto Aside #2">
+                <br>
+                <img class="foto img-thumbnail" src="img/proyect3.jpg" alt="Foto Aside #3">
+            </aside>
+        </div>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+    <footer class="row middle-xs arround-xs">
+
+        <!-- OPCIONES FOOTER -->
+        <div class="col-xs-12 col-sm-4 ">
+            <div class="indicator center-xs">
+                <h3>Indicadores Económicos</h3>
+                <span id="uf"></span>
+                <br>
+                <br>
+                <span id="dolar"></span>
+                <br>
+                <br>
+                <span id="utm"></span>
+            </div>
+        </div>
+
+        <!-- RRSS -->
+        <div class="col-xs-12 col-sm-4 ">
+            <div class="con_rrss">
+                <div class=" centrarImg ">
+                    <a href="http://www.instagram.com" target="_blank"><img class="rrss" src="img/instagram.png" alt="Instagram"></a>
+                </div>
+                <div class="centrarImg ">
+                    <a href="https://www.facebook.com" target="_blank"><img class="rrss" src="img/facebook.png" alt="Facebook"></a>
+                </div>
+                <div class="centrarImg ">
+
+                    <a href="mailto:jyd-future@gmail.com"><img class="rrss" src="img/arroba.png" alt="Correo"></a>
+                </div>
+                <div class="centrarImg ">
+                    <a href="tel:+56977665544"><img class="rrss" src="img/comunicaciones.png" alt="Teléfono"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOGO FOOTER -->
+        <div class="col-xs-12 col-sm-4 logo-foot">
+            <a href="#"><img src="img/logo.png" alt="Logo" class="logo-pxx"></a>
+
+        </div>
+        <a href="#subir-al-cielo" class="up scrollup">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+
+
+    </footer>
+    <script src="js/subir-al-cielo.js"></script>
+    <script src="js/uf.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
