@@ -1,0 +1,103 @@
+{% extends 'core/base.html' %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/flexboxgrid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/boostrap.min.css'%}">
+
+{% block submenu %} 
+
+    {% if request.user.is_staff %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <span class="navbar-brand" href="#"><i>ADMINISTRAR</i></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep" aria-controls="nep" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nep">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'depto_new' %}"><i>Crear Departamento</i></a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'deptos' %}"><i>Listar Departamentos</i></a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    {% endif %}
+
+{% endblock submenu %}
+
+{% block  content %}
+   
+    {% for depto in departamento_list %}
+
+        <div class="col-sm-6 col-md-4 mt-3">
+			<div class="card mb-4">
+				<img src="{{depto.imagen.url}}" class="card-img-top tamano_img" alt="">
+				<div class="card-body">
+					<h2 class="card-text">{{ depto.titulo|linebreaksbr }}</h2>
+                    <p class="card-text">Precio: $ {{ depto.precio }}</p>
+                    <p class="card-text">Dirección: {{ depto.direccion }}</p>
+                    <p class="card-text">Piso N°: {{ depto.num_piso }}</p>
+                    <p class="card-text">Ciudad: {{ depto.ciudad }}</p>
+                    <p class="card-text">Habitaciones: {{ depto.cant_habitaciones }}</p>
+                    <p class="card-text">Baños: {{ depto.cant_baños }}</p>
+                    <p class="card-text">Metros2: {{ depto.metros_2 }}</p>
+                    
+					<div class="d-flex justify-content-between align-items-center">
+						<div class="btn-group">
+							<a href="{% url 'depto' depto.id %}" class="btn btn-sm btn-outline-secondary">Ver Más</a>
+							<button class="btn btn-sm btn-outline-secondary">{{depto.tipo_contacto}}</button>
+                            {% if request.user.is_staff %}
+                                <a href="{% url 'depto_update' depto.id %}" class="btn btn-sm btn-outline-primary">Editar</a>
+                                <a href="{% url 'depto_delete' depto.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+                            {% endif %}
+						</div>
+                        {% if not request.user.is_staff %}
+                            <small class="text-muted">{{ depto.published_date }}</small>
+                        {% endif %}
+					</div>
+                    {% if  request.user.is_staff %}
+                        <small class="text-muted">{{ depto.published_date }}</small>
+                    {% endif %}
+				</div>
+			</div>
+		</div>
+
+    {% endfor %}
+
+	<div class = "col-sm-12">
+        {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item ">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">&laquo;</a>
+                    </li>
+                {% endif %}
+                {% for i in paginator.page_range %}
+                    <li class="page-item {% if page_obj.number == i %}active{% endif %}">
+                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item ">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">&raquo;</a>
+                    </li>
+                {% endif %}
+                </ul>
+            </nav>
+        {% endif %}            
+    </div>
+
+{% endblock content %}

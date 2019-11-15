@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/flexboxgrid.min.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'core/css/boostrap.min.css'%}">
+
+{% block  content %}
+    <div class=" prop_detail mt-3 mb-3 p-4 bg-dark">
+        <h1 class="my-4">Historia de la empresa</h1>
+
+        <div class="row">
+
+            <div class="col-md-12">
+                <p>JODA Propiedades, es una empresa con años de distinguida trayectoria en el rubro inmobiliario. Acompañan un grupo de profesionales prestigiosos en el rubro, los cuales brindan calidad en el servicio. El objetivo de los mismos es el de lograr la satisfacción
+                de los clientes al finalizar las operaciones. Transmiten tranquilidad y confianza prestando todo el conocimiento y experiencia para la toma de decisiones y así llegar a un óptimo final. Ofrecemos asesoramiento jurídico y financiero
+                además de contar con prestigiosos arquitectos ante cualquier duda que se presente. Nuestro objetivo es asegurar y coordinar su inversión, garantizando así su satisfacción y tranquilidad. Hagamos de la propiedad que adquiere una
+                experiencia memorable que pueda transmitir a sus amigos y familia. Estamos convencidos en que la negociación es el arte de crear acuerdos sobre un tema específico entre dos o más partes con diferentes puntos de vista. Un profesional
+                exitoso no es hoy el que realiza buenas operaciones. Es el que procura que su cliente siempre lo recuerde gratamente. La satisfacción de los clientes se puede definir como la diferencia entre la expectativa que tenía antes de adquirir
+                una propiedad y la percepción del beneficio obtenido una vez experimentado dicho bien.</p>
+            </div>
+        
+        </div>
+    </div>
+
+{% endblock content %}
